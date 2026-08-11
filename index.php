@@ -121,7 +121,7 @@ $produtos = [
 
     <!-- Rodape -->
     <footer>
-        &copy; <?= date('Y') ?> TechStore - Exemplo de E-commerce com PHP e HTML
+        &copy; <?= date('Y') ?> Lojinha da Esquina - Exemplo de E-commerce com PHP e HTML
     </footer>
 
 </body>
