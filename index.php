@@ -1,6 +1,8 @@
 <?php
 
-$produtos = [
+require_once('produto.php');
+
+$arrayProdutos = [
     [
         'id'        => 1,
         'nome'      => 'Fone de Ouvido Bluetooth Pro',
@@ -35,9 +37,27 @@ $produtos = [
         'preco'     => 189.90,
         'categoria' => 'Acessórios',
         'imagem'    => 'images/mochila.png',
-        'estoque'   => 22
+        'estoque'   => 9
     ]
 ];
+
+$produtos = [];
+foreach ($arrayProdutos as $arrayProduto) {
+
+    $produto = new Produto();
+
+    $produto->codigo = $arrayProduto['id'];
+    $produto->nome = $arrayProduto['nome'];
+    $produto->descricao = $arrayProduto['descricao'];
+    $produto->preco = $arrayProduto['preco'];
+    $produto->categoria = $arrayProduto['categoria'];
+    $produto->caminhoImagem = $arrayProduto['imagem'];
+    $produto->quantidade = $arrayProduto['estoque'];
+   
+    $produtos[] = $produto->reporEstoque(-100);
+}
+
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -81,35 +101,35 @@ $produtos = [
             <?php foreach ($produtos as $produto): ?>
                 <article class="product-card">
                     <div class="image-container">
-                        <img src="<?= htmlspecialchars($produto['imagem']) ?>" alt="<?= htmlspecialchars($produto['nome']) ?>">
+                        <img src="<?= htmlspecialchars($produto->caminhoImagem) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
                     </div>
                     <div class="product-info">
                         <div class="product-meta">
                             <!-- Categoria vinda do Array em PHP -->
                             <span class="category-badge">
-                                <?= htmlspecialchars($produto['categoria']) ?>
+                                <?= htmlspecialchars($produto->categoria) ?>
                             </span>
 
                             <!-- Quantidade em Estoque vinda do Array em PHP -->
-                            <span class="stock-badge <?= $produto['estoque'] <= 5 ? 'low-stock' : '' ?>">
-                                Estoque: <?= (int)$produto['estoque'] ?> un.
+                            <span class="stock-badge <?= $produto->quantidade <= 5 ? 'low-stock' : '' ?>">
+                                Estoque: <?= (int)$produto->quantidade ?> un.
                             </span>
                         </div>
 
                         <!-- Nome vindo do Array em PHP -->
                         <h2 class="product-title">
-                            <?= htmlspecialchars($produto['nome']) ?>
+                            <?= htmlspecialchars($produto->nome) ?>
                         </h2>
 
                         <!-- Descricao vinda do Array em PHP -->
                         <p class="product-description">
-                            <?= htmlspecialchars($produto['descricao']) ?>
+                            <?= htmlspecialchars($produto->descricao) ?>
                         </p>
 
                         <div class="product-footer">
                             <!-- Preco vindo do Array em PHP com formatação R$ -->
                             <span class="product-price">
-                                R$ <?= number_format($produto['preco'], 2, ',', '.') ?>
+                                R$ <?= number_format($produto->preco, 2, ',', '.') ?>
                             </span>
                             <button class="btn-buy">Comprar</button>
                         </div>
