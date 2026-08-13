@@ -1,62 +1,8 @@
 <?php
+require_once('dados.php');
 
-require_once('produto.php');
 
-$arrayProdutos = [
-    [
-        'id'        => 1,
-        'nome'      => 'Fone de Ouvido Bluetooth Pro',
-        'descricao' => 'Som de alta fidelidade com cancelamento ativo de ruído (ANC) e bateria com até 30h de duração.',
-        'preco'     => 299.90,
-        'categoria' => 'Eletrônicos',
-        'imagem'    => 'images/fone.png',
-        'estoque'   => 15
-    ],
-    [
-        'id'        => 2,
-        'nome'      => 'Smartwatch Sport Fit',
-        'descricao' => 'Monitoramento cardíaco 24/7, GPS integrado, tela AMOLED HD e resistência à água (5 ATM).',
-        'preco'     => 450.00,
-        'categoria' => 'Acessórios',
-        'imagem'    => 'images/smartwatch.png',
-        'estoque'   => 8
-    ],
-    [
-        'id'        => 3,
-        'nome'      => 'Teclado Mecânico RGB',
-        'descricao' => 'Switches mecânicos táteis, iluminação RGB personalizável e estrutura durável em alumínio.',
-        'preco'     => 389.99,
-        'categoria' => 'Periféricos',
-        'imagem'    => 'images/teclado.png',
-        'estoque'   => 3
-    ],
-    [
-        'id'        => 4,
-        'nome'      => 'Mochila Impermeável Tech',
-        'descricao' => 'Compartimento acolchoado para notebook de 15.6", saída USB externa e tecido resistente à água.',
-        'preco'     => 189.90,
-        'categoria' => 'Acessórios',
-        'imagem'    => 'images/mochila.png',
-        'estoque'   => 9
-    ]
-];
-
-$produtos = [];
-foreach ($arrayProdutos as $arrayProduto) {
-
-    $produto = new Produto();
-
-    $produto->codigo = $arrayProduto['id'];
-    $produto->nome = $arrayProduto['nome'];
-    $produto->descricao = $arrayProduto['descricao'];
-    $produto->preco = $arrayProduto['preco'];
-    $produto->categoria = $arrayProduto['categoria'];
-    $produto->caminhoImagem = $arrayProduto['imagem'];
-    $produto->quantidade = $arrayProduto['estoque'];
-   
-    $produtos[] = $produto->reporEstoque(-100);
-}
-
+$podutos = $_SESSION['produtos'];r
 
 ?>
 <!DOCTYPE html>
@@ -131,7 +77,7 @@ foreach ($arrayProdutos as $arrayProduto) {
                             <span class="product-price">
                                 R$ <?= number_format($produto->preco, 2, ',', '.') ?>
                             </span>
-                            <button class="btn-buy">Comprar</button>
+                            <a href="#" class="btn-buy">Comprar</a>
                         </div>
                     </div>
                 </article>

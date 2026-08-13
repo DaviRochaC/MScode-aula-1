@@ -1,17 +1,21 @@
 <?php 
 
 class Produto {
-    public int $codigo;
-    public string $nome;
-    public string $descricao;
-    public float $preco;
-    public string $categoria;
-    public string $caminhoImagem;
-    public int $quantidade;
 
-    public function reporEstoque(int $quantidadeRepor): self
-     {
-        $this->quantidade += $quantidadeRepor;
-        return $this;
+    public function __construct(
+        public readonly int $codigo,
+        public readonly string $nome,
+        public readonly string $descricao,
+        private float $preco,
+        private string $categoria,
+        private string $caminhoImagem,
+        private int $quantidade
+    )
+    {
+        if($this->preco < 0) {
+            throw new Exception("Preço não pode ser negativo");
+        }
     }
+    
+
 }
