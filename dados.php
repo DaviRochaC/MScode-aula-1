@@ -2,9 +2,22 @@
 
 require_once('cliente.php');
 require_once('produto.php');
+require_once('animal.php');
+require_once('gato.php');
+require_once('cachorro.php');
 
+
+$animais = [
+    new Gato('Klaus'),
+    new Cachorro('Bidu')
+];
+
+foreach ($animais as $animal){
+    $animal->apresentar();
+}
+
+die();
 session_start();
-
 
 $arrayClientes = [
     [
@@ -111,3 +124,9 @@ foreach ($arrayProdutos as $arrayProduto) {
 
     $produtos[] = $produto;
 }
+
+$pessoa = new Pessoa(
+    'Davi',
+    '2799999999',
+    '12345678910'
+);

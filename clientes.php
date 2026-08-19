@@ -1,7 +1,5 @@
 <?php
 require_once('dados.php');
-require_once 'cliente.php';
-
 
 $clientes = $_SESSION['clientes'];
 
@@ -46,10 +44,10 @@ $clientes = $_SESSION['clientes'];
                 <article class="client-card">
                     <div class="client-header">
                         <div class="client-avatar">
-                            <?= strtoupper(substr($cliente->nome, 0, 1)) ?>
+                            <?= strtoupper(substr($cliente->getNome(), 0, 1)) ?>
                         </div>
                         <div class="client-name-container">
-                            <h2 class="client-title"><?= htmlspecialchars($cliente->nome) ?></h2>
+                            <h2 class="client-title"><?= htmlspecialchars($cliente->getNome()) ?></h2>
                             <span class="client-id">Cliente #<?= sprintf('%03d', $cliente->id) ?></span>
                         </div>
                     </div>
@@ -57,18 +55,18 @@ $clientes = $_SESSION['clientes'];
                     <div class="client-details">
                         <div class="detail-row">
                             <span class="detail-label">Telefone:</span>
-                            <span class="detail-value"><?= htmlspecialchars($cliente->telefone) ?></span>
+                            <span class="detail-value"><?= htmlspecialchars($cliente->getTelefone()) ?></span>
                         </div>
                         <div class="detail-row">
                             <span class="detail-label">CPF:</span>
-                            <span class="detail-value"><?= htmlspecialchars($cliente->cpf) ?></span>
+                            <span class="detail-value"><?= htmlspecialchars($cliente->getCpf()) ?></span>
                         </div>
                     </div>
 
                     <div class="client-footer">
                         <span class="debt-label">Saldo Devedor:</span>
-                        <span class="debt-amount <?= $cliente->saldoDevedor > 0 ? 'has-debt' : 'no-debt' ?>">
-                            R$ <?= number_format($cliente->saldoDevedor, 2, ',', '.') ?>
+                        <span class="debt-amount <?= $cliente->getSaldoDevedor() > 0 ? 'has-debt' : 'no-debt' ?>">
+                            R$ <?= number_format($cliente->getSaldoDevedor(), 2, ',', '.') ?>
                         </span>
                     </div>
                 </article>

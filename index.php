@@ -2,7 +2,7 @@
 require_once('dados.php');
 
 
-$podutos = $_SESSION['produtos'];r
+$produtos = $_SESSION['produtos'];
 
 ?>
 <!DOCTYPE html>
@@ -47,18 +47,18 @@ $podutos = $_SESSION['produtos'];r
             <?php foreach ($produtos as $produto): ?>
                 <article class="product-card">
                     <div class="image-container">
-                        <img src="<?= htmlspecialchars($produto->caminhoImagem) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
+                        <img src="<?= htmlspecialchars($produto->getCaminhoImagem()) ?>" alt="<?= htmlspecialchars($produto->nome) ?>">
                     </div>
                     <div class="product-info">
                         <div class="product-meta">
                             <!-- Categoria vinda do Array em PHP -->
                             <span class="category-badge">
-                                <?= htmlspecialchars($produto->categoria) ?>
+                                <?= htmlspecialchars($produto->getCategoria()) ?>
                             </span>
 
                             <!-- Quantidade em Estoque vinda do Array em PHP -->
-                            <span class="stock-badge <?= $produto->quantidade <= 5 ? 'low-stock' : '' ?>">
-                                Estoque: <?= (int)$produto->quantidade ?> un.
+                            <span class="stock-badge <?= $produto->getQuantidade() <= 5 ? 'low-stock' : '' ?>">
+                                Estoque: <?= (int)$produto->getQuantidade ()?> un.
                             </span>
                         </div>
 
@@ -75,9 +75,9 @@ $podutos = $_SESSION['produtos'];r
                         <div class="product-footer">
                             <!-- Preco vindo do Array em PHP com formatação R$ -->
                             <span class="product-price">
-                                R$ <?= number_format($produto->preco, 2, ',', '.') ?>
+                                R$ <?= number_format($produto->getPreco(), 2, ',', '.') ?>
                             </span>
-                            <a href="#" class="btn-buy">Comprar</a>
+                            <a href="comprar.php?id=<?= $produto->codigo ?>" class="btn-buy">Comprar</a>                        
                         </div>
                     </div>
                 </article>
