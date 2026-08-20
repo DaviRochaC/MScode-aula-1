@@ -48,4 +48,9 @@ class Produto {
             
         }
     }
+
+    public function apresentar(): void
+    {
+        echo $this->nome . PHP_EOL;
+    }
 }

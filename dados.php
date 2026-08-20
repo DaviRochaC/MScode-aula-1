@@ -1,23 +1,15 @@
 <?php 
 
-require_once('cliente.php');
-require_once('produto.php');
-require_once('animal.php');
-require_once('gato.php');
-require_once('cachorro.php');
+require_once('./classes/cliente.php');
+require_once('./classes/produto.php');
+require_once('./classes/animal.php');
+require_once('./classes/gato.php');
+require_once('./classes/cachorro.php');
 
 
-$animais = [
-    new Gato('Klaus'),
-    new Cachorro('Bidu')
-];
 
-foreach ($animais as $animal){
-    $animal->apresentar();
-}
-
-die();
 session_start();
+
 
 $arrayClientes = [
     [
