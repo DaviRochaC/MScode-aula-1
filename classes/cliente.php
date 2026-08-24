@@ -8,12 +8,14 @@ class Cliente extends Pessoa {
         string $nome,
          string $telefone,
         string $cpf, 
-        private float $saldoDevedor
+        private float $saldoDevedor,
+        string $email
     ){
         parent::__construct(
             $nome, 
             $telefone,
-             $cpf
+             $cpf,
+             $email
         );
     }
 
@@ -35,5 +37,10 @@ class Cliente extends Pessoa {
         $this->saldoDevedor +=  $produto->getPreco() * $quantidade;
 
         return $this;
+    }
+
+     public function getEmail(): string
+    {
+        return $this->email;
     }
 }

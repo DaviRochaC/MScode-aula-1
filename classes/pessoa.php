@@ -7,6 +7,7 @@ class Pessoa {
         private readonly string $nome,
         protected string $telefone,
         protected readonly string $cpf, 
+        protected string $email
     ){
 
     }
@@ -25,4 +26,5 @@ class Pessoa {
     {
         return $this->nome;
     }
+
 }

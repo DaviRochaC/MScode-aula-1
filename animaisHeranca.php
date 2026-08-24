@@ -3,12 +3,12 @@
 try {
     require_once('./classes/gato.php');
     require_once('./classes/cachorro.php');
-    // require_once('./classes/animal.php');
+   require_once('./classes/animal.php');
 
     $animais = [
         new Gato('Klaus'),
         new Cachorro('Bidu'),
-        // new Animal('asdasd')
+       new Animal('asdasd')
     ];
 
     foreach ($animais as $animal){

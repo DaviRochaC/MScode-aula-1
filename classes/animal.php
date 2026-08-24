@@ -11,5 +11,15 @@ abstract class Animal {
         echo "Eu sou o(a) $this->nome". PHP_EOL;
     }
 
+  public function fazerSomGato(): void
+    {
+        echo "Miau";
+    }
+
+      public function fazerSomCachorro(): void
+    {
+        echo "Au au";
+    }
+    
     abstract public function fazerSom(): void;
 }
