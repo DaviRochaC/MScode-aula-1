@@ -11,6 +11,6 @@ class Whatsapp implements CanalComunicacao {
         
     public function nome(): string 
     {
-        return 'Ehatsapp';
+        return 'Whatsapp';
     }
 }

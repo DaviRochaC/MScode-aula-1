@@ -1,7 +1,7 @@
 <?php 
 
 require_once('cliente.php');
-require_once('email.php');
+require_once('canalComunicacao.php');
 
 class CompraService {
 
@@ -17,7 +17,7 @@ class CompraService {
 
         $mensagem = "Olá $nomeCliente, recebemos sua compra na moveis simonetti!";
 
-        $enviado = $this->canalComunicacao->enviar($destinatario, $mensagem);
+        $enviado = $this->canalComunicacao->enviarMensagem($destinatario, $mensagem);
 
         if($enviado) {
             echo "{$this->canalComunicacao->nome()} enviada com sucesso!";

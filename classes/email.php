@@ -2,7 +2,7 @@
 
 class Email implements CanalComunicacao {
 
-    public function enviar(string $destinatario, string $mensagem): bool
+    public function enviarMensagem(string $destinatario, string $mensagem): bool
     {
        return mail(
        $destinatario, 
