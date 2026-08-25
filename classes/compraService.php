@@ -15,7 +15,7 @@ class CompraService {
     public function finalizarCompra(string $destinatario, string $nomeCliente): void  
     {
 
-        $mensagem = "Olá $cliente, recebemos sua compra na moveis simonetti!";
+        $mensagem = "Olá $nomeCliente, recebemos sua compra na moveis simonetti!";
 
         $enviado = $this->canalComunicacao->enviar($destinatario, $mensagem);
 
