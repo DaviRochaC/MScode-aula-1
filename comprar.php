@@ -13,7 +13,7 @@ try {
     $_SESSION['clientes'][1] = $cliente->registrarCompra($produto, 1);
     $_SESSION['produtos'][$produtoId] = $produto;
 
-    $whatsapp = new Whastapp();
+    $whatsapp = new Whatsapp();
     $compraService = new CompraService($whatsapp);
     $compraService->finalizarCompra($cliente->getTelefone());
 
